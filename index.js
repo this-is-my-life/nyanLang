@@ -1,28 +1,87 @@
 /**
  * @name NyanLang
  * @description 그냥 심심해서 약빨고 만든거니 신경쓰지 마십시오
- * @version 1.0.0
+ * @version 2.0.0
  * @see ./test/index.js
  * @example
- * require('nyanlang')
- * '냐~'.냐.냐핫('냐하~').냐핫('냥체 '+'히잇'.냐.냐.냐앗('아앙'.끄앙+'하악'.끄앙+'하앗'.냐아)+'다냐'+'냐하핫'.끄앙).냐하()
+ * 
  */
 
-String.prototype.냐 = String.prototype
+const proc = {
+  /**
+   * time 밀리초뒤 cb를 실행합니다
+   * @param {Number} time 밀리초단위
+   * @param {Function} cb 실행할 함수
+  */
+  나: (time, cb) => {
+    setTimeout(() => {
+      cb()
+    }, time)
+  },
 
-String.prototype.냐하 = () => {
-  process.exit()
+  냐: Object,
+
+  /**
+   * nyanLang 버전을 출력합니다
+   * @type {String} nyanLang 버전
+  */
+  냣: require('./package.json').version,
+
+  /**
+   * text를 콘솔에 출력합니다
+   * @param {any} text 출력할 값
+   */
+  냥: (text) => {
+    console.log(text)
+  },
+
+  /**
+   * a에 b를 더합니다
+   * @param {String | Number} a 더해지는 값
+   * @param {String | Number} b 더하는 값
+   * 
+   * @returns {String | Number} 더해진 값
+   */
+  냐앗: (a, b) => {
+    return a + b
+  },
+
+    /**
+   * a에 b를 뺍니다
+   * @param {Number} a 빼지는 값
+   * @param {Number} b 빼는 값
+   * 
+   * @returns {Number} 빼진 값
+   */
+  냐엇: (a, b) => { 
+    return a - b
+  },
+
+  /**
+   * a를 b번 곱하거나 반복합니다
+   * @param {String | Number} a 곱해지는 값
+   * @param {String | Number} b 곱하는 값
+   * 
+   * @returns {String | Number} 곱해진 값
+   */
+  냐냐: (a, b) => {
+    if (typeof(a) === 'string' && typeof(b) === 'number') return a.repeat(b)
+    else if (typeof(b) === 'string' && typeof(a) === 'number') return b.repeat(a)
+    else return a * b
+  },
+
+  /**
+   * a에 b를 나눕니다
+   * @param {Number} a 나눠지는 값
+   * @param {Number} b 나누는 값
+   * 
+   * @returns {Number} 나눈 값
+   */
+  냐녀: (a, b) => { 
+    return a / b
+  }
 }
 
-String.prototype.냐핫 = (문장이다냐) => {
-  console.log(문장이다냐)
-  return String.prototype
-}
+proc['냐'] = proc
 
-String.prototype.냐앗 = eval
-
-String.prototype.냐아 = true
-
-String.prototype.냐냐 = false
-
-String.prototype.끄앙 = '!'
+module.exports = proc
